@@ -37,3 +37,4 @@
 /Users/raflyadek/project_rafly/mandaya_assignment/mandaya_api/bin/Debug/net10.0/Npgsql.dll
 /Users/raflyadek/project_rafly/mandaya_assignment/mandaya_api/bin/Debug/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/raflyadek/project_rafly/mandaya_assignment/mandaya_api/bin/Debug/net10.0/EFCore.NamingConventions.dll
+/Users/raflyadek/project_rafly/mandaya_assignment/mandaya_api/obj/Debug/net10.0/mandaya_api.sourcelink.json

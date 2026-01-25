@@ -17,7 +17,7 @@ builder.Services.AddControllers()
 //db
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")
-    ).UseSnakeCaseNamingConvention()
+    ).UseSnakeCaseNamingConvention().LogTo(Console.WriteLine)
 );
 //service/application
 builder.Services.AddScoped<PlanetService>();

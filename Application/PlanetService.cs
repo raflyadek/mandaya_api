@@ -60,6 +60,8 @@ public class PlanetService
         int maxTemp
     )
     {
+        Console.WriteLine(minTemp);
+        Console.WriteLine(maxTemp);
         return await _db.Planets
         .Where(p => p.SurfaceTempC >= minTemp && p.SurfaceTempC <= maxTemp).ToListAsync();
     }

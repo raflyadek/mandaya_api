@@ -66,19 +66,23 @@ public class PlanetController : ControllerBase
 
     [HttpGet("environment")]
     public async Task<IActionResult> GetByEnvironment(
-        [FromQuery] int minTemp,
-        [FromQuery] int maxTemp
+        [FromQuery] int min_temp,
+        [FromQuery] int max_temp
     )
     {
-        //min temp cannot higher than maxtemp
-        if (minTemp > maxTemp)
+        //min temp cannot higher than max_temp
+        if (min_temp > max_temp)
         {
             return StatusCode(400, new { message = "min temp cannot higher than max temp"});
+        }
+        if (min_temp == 0 && max_temp == 0)
+        {
+            return BadRequest(new {message = "cannot 0"});
         }
         try
         {
             var planets = await _service
-                .GetByTemperatureRangeAsync(minTemp, maxTemp);
+                .GetByTemperatureRangeAsync(min_temp, max_temp);
 
             var response = planets.Select(p => new 
             {

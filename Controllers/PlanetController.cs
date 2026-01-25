@@ -66,6 +66,7 @@ public class PlanetController : ControllerBase
 
     [HttpGet("environment")]
     public async Task<IActionResult> GetByEnvironment(
+        // this to get value from query param, but the case is matter/sensitive
         [FromQuery] int min_temp,
         [FromQuery] int max_temp
     )

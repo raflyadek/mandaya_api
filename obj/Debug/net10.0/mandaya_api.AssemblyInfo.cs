@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mandaya_api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c79cc2c62a96a2d6452ce0d0ae7ece17befbf65")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fe59432bb6072a94231058cf2137ca3d8d918ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("mandaya_api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mandaya_api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

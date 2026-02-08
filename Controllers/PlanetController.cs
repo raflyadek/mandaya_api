@@ -17,7 +17,7 @@ public class PlanetController : ControllerBase
     public async Task<IActionResult> Get()
     {
         var planet = await _service.GetAllAsync();
-        return Ok(planet);
+        return Ok(new { message = "ok", data = planet});
     }
 
     [HttpPost]
@@ -91,7 +91,7 @@ public class PlanetController : ControllerBase
                 surface_temp_c = p.SurfaceTempC 
             });
 
-            return Ok(response);
+            return Ok(new {data = response, message = "ok"});
         }
         catch
         {
@@ -111,7 +111,9 @@ public class PlanetController : ControllerBase
             var (a, b) = await _service.CompareAsync(planet_a, planet_b);
 
             return Ok(new
+            { data = new
             {
+                
                 planet_a = new
                 {
                     name = a.Name,
@@ -126,6 +128,7 @@ public class PlanetController : ControllerBase
                     gravity_m_s2 = b.GravityMS2,
                     surface_temp_c = b.SurfaceTempC
                 }
+            }
             });
         }
         catch (InvalidOperationException ex)
@@ -155,7 +158,7 @@ public class PlanetController : ControllerBase
         try
         {
             var result = await _service.CalculateJourneyAsync(from, to, speed_km_per_s);
-            return Ok(result);
+            return Ok(new {data = result});
         }
         catch (InvalidOperationException ex)
         {
@@ -174,7 +177,7 @@ public class PlanetController : ControllerBase
         try
         {
             var result = await _service.PlanetGrouping();
-            return Ok(result);
+            return Ok(new { data =result });
         }
         catch
         {

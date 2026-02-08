@@ -17,13 +17,20 @@ builder.Services.AddControllers()
 //db
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")
-    ).UseSnakeCaseNamingConvention().LogTo(Console.WriteLine)
+    ).UseSnakeCaseNamingConvention()
 );
 //service/application
-builder.Services.AddScoped<PlanetService>();
+
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<PlanetService>();
+
 
 //entry
 var app = builder.Build();
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode}");
+    await next();
+});
 app.MapControllers();
 app.Run();
